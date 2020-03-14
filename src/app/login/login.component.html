@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MVM UI</title>
+  <link rel="stylesheet" href='login.component.css'>
+
+
+
+
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="container">
+    <h1>Welcome to Virtual machine Management </h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input type="text" placeholder="Username" for="username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="password" placeholder="Password" for="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button  type="submit" id="login-button" [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Login
+    </button><br><br>
+    <label for="message1" (show)="disablefun" >No such user was found on the system !!!</label>
+  </div>
+  <button type="submit" id="Signin-button">Sign in</button>
+
+</form>
+  </div>
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+
+<script  src="js/index.js"></script>
+</body>
+</html>
+

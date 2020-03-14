@@ -1,0 +1,50 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color:cadetblue;
+}
+ul.MenuHome li.right {
+  float: right;
+}
+
+@media screen and (max-width: 700px) {
+  ul.MenuHome li.right,
+  ul.MenuHome li {float: none;}
+}
+
+.wrapper {
+  background: #50a3a2;
+  background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-top :-300px;
+  overflow: hidden;
+}
+ul.MenuHome li.logo {  color:white; font-family: "Great Vibes", cursive; font-size: 26px; line-height: 26px; font-weight: normal; margin-bottom: 0px; margin-top: 5px; text-align: center; text-shadow: 0 1px 1px #fff; }
+ul.MenuHome li.logo {
+  background:powderblue;
+}
+
