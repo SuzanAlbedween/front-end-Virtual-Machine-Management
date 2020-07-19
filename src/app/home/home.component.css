@@ -1,3 +1,51 @@
+body, html
+{
+  width:100%;
+  height:100%;
+  margin:0;
+}
+.wrapper {
+  background: #50a3a2;
+  background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height:auto;
+  margin-top :-300px;
+  overflow: hidden;
+}
+#container {
+  width: 100%;
+  height:auto;
+
+}
+#primary {
+  float: left;
+  width: 80%;
+  height:auto;
+
+}
+#content {
+  float: left;
+  width: 10%;
+  height:auto;
+
+}
+
+#footer {
+  clear: both;
+  border-top: 4px solid black;
+  clear: both;
+  color: black;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 auto;
+  padding: 18px 0 0;
+  text-align: center;
+  font-weight: bold;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -20,31 +68,49 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color:cadetblue;
+  background-color:black;
 }
 ul.MenuHome li.right {
   float: right;
 }
+.inner {
+  max-width: 400px;
+  margin: auto;
+  background: none;
+  padding: 15px 15px 15px;
 
-@media screen and (max-width: 700px) {
-  ul.MenuHome li.right,
-  ul.MenuHome li {float: none;}
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); }
+
+textarea {
+  resize: none; }
+
+h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: "Montserrat-Bold";
+  text-align: center;
+  margin-bottom: 12px; }
+
+input, textarea, select, button {
+  font-family: "Montserrat-Regular";
+  color: #fff;
+  font-size: 15px;
+  outline: none;
 }
 
-.wrapper {
-  background: #50a3a2;
-  background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin-top :-300px;
-  overflow: hidden;
+a:hover {
+  text-decoration: none;
 }
-ul.MenuHome li.logo {  color:white; font-family: "Great Vibes", cursive; font-size: 26px; line-height: 26px; font-weight: normal; margin-bottom: 0px; margin-top: 5px; text-align: center; text-shadow: 0 1px 1px #fff; }
-ul.MenuHome li.logo {
-  background:powderblue;
+:focus {
+  outline: none;
+  border: none;
 }
 
+p {
+  text-align: center;
+  padding: 0 10px;
+  margin-bottom: 55px;
+  line-height: 1.8; }

@@ -6,15 +6,77 @@
 </head>
 <body>
 <div class="wrapper">
-<ul class="MenuHome">
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">Create</a></li>
-  <li><a href="#contact">About</a></li>
-  <li class="right"><a class="active" href="#about">Logout</a></li>
-</ul>
+  <div id="container">
+
+    <div id="header">
+      <ul class="MenuHome">
+        <br>
+        <li><a href="home.component.html">Home</a></li>
+        <li><a href="create.component.html">Create</a></li>
+        <li><a href="about.component.html">About</a></li>
+        <li class="right"><a class="active" href="login.component.html">Logout</a></li>
+
+      </ul>
+    </div>
+
+    <div id="primary">
+      <br>
+      <button  type="submit" (click)="ShowData()" >refresh</button>
+      <br><br>
+      <table mat-table [dataSource]="listData">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element|json}} </td>
+        </ng-container>
+
+
+   <!-- <ng-container matColumnDef="dateOfBirth">
+      <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateOfBirth | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element">  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" >
+          <mat-icon class="mat-18">reorder</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> Update </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="accent" >
+          <mat-icon class="mat-18">system_update</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" >
+          <mat-icon class="mat-18">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+-->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+    <div id="footer">
+      <p>This website and its content is copyright of Suzan Alwkili.<br>
+        All rights reserved.</p>
+    </div>
 
 </div>
-
-
+</div>
 </body>
 </html>

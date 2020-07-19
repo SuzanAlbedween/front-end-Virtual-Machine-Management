@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>create vm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="create.component.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <div id="container">
+
+    <div id="header">
+      <ul class="MenuHome">
+        <br>
+        <li><a href="home.component.html">Home</a></li>
+        <li><a href="create.component.html">Create</a></li>
+        <li><a href="about.component.html">About</a></li>
+        <li class="right"><a class="active" href="login.component.html">Logout</a></li>
+
+      </ul>
+    </div>
+
+    <div id="primary">
+      <br>
+      <div class="inner">
+        <form>
+        <div [formGroup]="createForm" (ngSubmit)="onSubmit_create()">
+          <h3>Virtual machine creation</h3>
+          <p>Fill in all the data to get a virtual machine.</p>
+          <label class="form-group">
+            <input required formControlName="VirtualMachineName" maxlength="20"  type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && ff.VirtualMachineName.errors }">
+            <span>Virtual Machine Name</span>
+            <span class="border"></span>
+            <br>
+            <div *ngIf="submitted && ff.VirtualMachineName.errors" class="invalid-feedback">
+             <!-- <div  class="alert alert-danger" *ngIf="ff.VirtualMachineName.touched &&!ff.VirtualMachineName.valid">-->
+                <div *ngIf="ff.VirtualMachineName.errors.required">Virtual Machine Name is required</div>
+               <div *ngIf="ff.VirtualMachineName.errors.maxlength">Virtual Machine Name must be maxiumom 20 charcter</div>
+              </div>
+          </label>
+
+          <label class="form-group">
+            <select required formControlName="OperatingSystem" class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.OperatingSystem.errors }" (ngModelChange)="onOperatingSystemSelected($event)" >
+              <option *ngFor="let emp of OsArr" [value]="emp.name"> {{emp.name}} </option>
+            </select>
+            <span class="os">Operating System </span>
+            <span class="border"></span>
+            <br>
+            <div *ngIf="submitted && ff.OperatingSystem.errors" class="invalid-feedback">
+              <div *ngIf="ff.OperatingSystem.errors.required">Operating System is required</div>
+            </div>
+          </label>
+
+          <label class="form-group">
+            <select required formControlName="RAM" class="form-control"  (ngModelChange)="onRamSelected($event)" [ngClass]="{ 'is-invalid': submitted && ff.RAM.errors }" >
+              <option *ngFor="let emp of AmountOfRam" [value]="emp.size"> {{emp.size}} </option>
+            </select>
+            <span class="os">RAM </span>
+            <span class="border"></span>
+            <br>
+            <div *ngIf="submitted && ff.RAM.errors" class="invalid-feedback">
+           <div  *ngIf="ff.RAM.errors.required" >RAM is required </div>
+            </div>
+          </label>
+
+          <label class="form-group">
+            <input required formControlName="Storage" type="number" class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.Storage.errors }" >
+            <span>Storage</span>
+            <span class="border"></span>
+            <br>
+            <div *ngIf="submitted && ff.Storage.errors" class="invalid-feedback">
+            <div  *ngIf="!ff.Storage.valid">Storage is required </div>
+            </div>
+          </label>
+
+          <label class="form-group">
+            <br>
+            <mat-form-field >
+              <!--TODO the start Date-->
+              <input required formControlName="lifetime" [min]="startDate" matInput [matDatepicker]="lifetime"  [ngClass]="{ 'is-invalid': submitted && ff.lifetime.errors }">
+              <mat-datepicker-toggle [for]="lifetime" matSuffix ></mat-datepicker-toggle>
+              <mat-datepicker #lifetime  ></mat-datepicker>
+
+            </mat-form-field>
+            <br>
+            <span class="os">Life Time</span>
+            <span class="border"></span>
+            <br>
+            <mat-error *ngIf="submitted && ff.lifetime.invalid ">Lifetime is required</mat-error>
+           <!-- <div *ngIf="submitted && ff.lifetime.errors" class="invalid-feedback">
+            <div  *ngIf="!ff.lifetime.valid">life time is required </div>
+            </div>-->
+          </label>
+
+          <label class="form-group" >
+            <br><br>
+            <input required formControlName="VirtualHardDisk" type="file" class="form-control" id="vhd" [ngClass]="{ 'is-invalid': submitted && ff.VirtualHardDisk.errors }">
+            <span class="os">Virtual Hard Disk</span>
+            <br>
+            <span class="border"></span>
+            <br>
+            <div *ngIf="submitted && ff.VirtualHardDisk.errors" class="invalid-feedback">
+            <div  *ngIf="!ff.VirtualHardDisk.valid">Virtual Hard Disk is required </div>
+            </div>
+          </label>
+
+          <label class="form-group">
+            <br><br>
+
+            <input type="radio" formControlName="Status"  class="status"   value="PowerOff" checked>OFF
+
+            <input type="radio"  formControlName="Status" class="status"     value="PowerOn">ON
+            <span class="os" class="form-group" >Status</span>
+
+
+            <span class="border"></span>
+          </label>
+
+
+
+            <button  type="submit" (click)="onSubmit_create()" >
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Submit
+            <i class="zmdi zmdi-arrow-right"></i>
+          </button>
+        </div>
+
+        </form>
+      </div>
+      <br><br>
+    </div>
+
+    <div id="content">
+      <p>Main content</p>
+    </div>
+
+    <div id="secondary">
+      <p>Secondary Sidebar</p>
+    </div>
+
+    <div id="footer">
+      <p>This website and its content is copyright of Suzan Alwkili.<br>
+        All rights reserved.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

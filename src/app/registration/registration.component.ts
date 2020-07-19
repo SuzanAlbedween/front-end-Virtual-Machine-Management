@@ -11,6 +11,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  // TODO..
   fun1() {
     this.router.navigate(['/Create']);
   }

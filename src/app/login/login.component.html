@@ -17,7 +17,7 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <input type="text" placeholder="Username" for="username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+    <div *ngIf="submitted  &&f.username.errors" class="invalid-feedback">
       <div *ngIf="f.username.errors.required">Username is required</div>
     </div>
   </div>
@@ -34,7 +34,7 @@
       <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
       Login
     </button><br><br>
-    <label for="message1" (show)="disablefun" >No such user was found on the system !!!</label>
+  <!--  <label for="message1" (show)="disablefun" >No such user was found on the system !!!</label>-->
   </div>
   <button type="submit" id="Signin-button">Sign in</button>
 

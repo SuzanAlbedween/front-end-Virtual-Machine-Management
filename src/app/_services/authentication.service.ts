@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {User} from '../_models/user';
+import {GlobalConstants} from '../common/global-constants';
 
-const apiUrl = 'http://localhost:5000'
+
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
@@ -22,7 +23,7 @@ export class AuthenticationService {
 
   login(objuser: User ) {
     console.log(objuser);
-    return this.http.post<any>(apiUrl + '/auth', objuser)
+    return this.http.post<any>(GlobalConstants.apiUrl + '/auth', objuser)
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));

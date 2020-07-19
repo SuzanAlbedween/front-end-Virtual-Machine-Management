@@ -6,6 +6,7 @@ import { AuthenticationService} from '../_services/authentication.service';
 import {AlertService} from '../_services/alert.service';
 import {User} from '../_models/user';
 import {ToastrService} from 'ngx-toastr';
+import {GlobalConstants} from '../common/global-constants';
 declare const myTest: any;
 
 @Component({
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit {
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
-  showtosterS() { this.toastr.error('No such user was found on the system !!!'); }
+ /* showtosterS() { this.toastr.error('No such user was found on the system !!!'); }*/
   onSubmit() {
     this.submitted = true;
     // reset alerts on submit
@@ -70,12 +71,17 @@ export class LoginComponent implements OnInit {
           if (data === 'True') {
             myTest();
             await this.delay(9000);
-            this.router.navigate(['/Home']);
+            GlobalConstants.gusername = this.objuser.name;
+            GlobalConstants.gpassword = this.objuser.password;
+           // this.router.navigate(['/Home']);
+            console.log('the globale virb', GlobalConstants.gusername, GlobalConstants.gpassword);
+            this.router.navigate(['/Create']);
           } else {
+            // todo..
             console.log('abbs');
-
             this.disablefun = true;
             this.loading = false;
+            this.toastr.error('No such user was found on the system !!!');
           }
         });
 
